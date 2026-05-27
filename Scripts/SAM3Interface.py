@@ -17,12 +17,13 @@ import torch
 import cv2
 
 
-def SAM3Mask(ImgDIR):
+def SAM3Mask(ImgDIR, Prompt):
     """
     Process images in the specified directory using SAM3 masking.
     
     Args:
         ImgDIR: Path to the directory containing images
+        Prompt: Text prompt for object detection (e.g., "Black Shape")
     """
 
     #Check for CUDA availability
@@ -63,7 +64,7 @@ def SAM3Mask(ImgDIR):
     # Run inference with autocast for mixed precision
     with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
         inference_state = processor.set_image(img_with_border)
-        output = processor.set_text_prompt(state=inference_state, prompt="Black Shape")
+        output = processor.set_text_prompt(state=inference_state, prompt=Prompt)
         masks, boxes, scores = output["masks"], output["boxes"], output["scores"]
 
     # Check if any masks were detected
