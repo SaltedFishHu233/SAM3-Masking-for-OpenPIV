@@ -18,8 +18,8 @@ to install oepnpiv-python-cpu
 ## Notebook Description
 There are three notebooks for this repository:
 
-GroundedSAMClean: Step by step workflow of the automated script in the Scripts folder
+SAM3MaskGen: Step by step workflow of the automated script in the Scripts folder
 
-AutoGS: Simplified mask generation to test the script in Scripts folder
+AutoSAM3: Simplified mask generation to test the script in Scripts folder
 
-OpenPIVwGS: Integrated workflow of PIV analysis with the automated mask generation
+OpenPIVwSAM3: Integrated workflow of PIV analysis with the automated mask generation using SAM3
